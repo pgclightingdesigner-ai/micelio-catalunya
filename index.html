@@ -1756,7 +1756,7 @@ function abrir(z) {
       </div><div class="stat" id="gpsinfo"></div></div>
     <div class="consell">💡 ${z.consell}</div>
     <div class="segur">🛡️ <b>Abans de collir res</b>: ${DATA.avis_seguretat || ''}</div>`;
-  if (!D().horizonte)   // nomes te sentit corroborar el dia d'AVUI
+  if (!D().horizonte) {   // nomes te sentit corroborar el dia d'AVUI
     const espFb = (z.especies || []).filter(e => !e.fora_temporada).slice(0, 6);
     h += `<div class="fbbox" id="fbbox">🧪 <b>Hi has anat avui?</b> Explica com ha anat — cinc tocs
       i tindrem dades de veritat per saber si el mapa encerta:
@@ -1794,6 +1794,7 @@ function abrir(z) {
         📨 Enviar-ho al bot</button>
       <div class="fbnota">La resposta es guarda al teu mòbil i s'envia pel xat del bot, que la registra
         i la contrasta amb el que el mapa deia aquell dia. No s'hi envia cap coordenada teva, només la zona i l'altitud.</div></div>`;
+  }
   h += `<div class="rowbtns">
       <button class="btn sec" onclick="compartir('${z.id}')">📤 Compartir</button>
       <button class="btn" onclick="map.flyToBounds(shapes['${z.id}'].getBounds(),{maxZoom:13})">🔍 Apropar-hi</button>
